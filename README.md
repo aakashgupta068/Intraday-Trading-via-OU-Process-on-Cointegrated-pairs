@@ -15,7 +15,7 @@ Edit
 ├── data/                  # Raw and processed market data
 ├── notebooks/             # EDA, modeling, performance analysis
 ├── src/
-│   ├── data_loader.py     # Load & preprocess data
+│   ├── data_loader.py     # Load & preprocess data \n
 │   ├── cointegration.py   # Pair filtering via Johansen test
 │   ├── ou_model.py        # OU parameter estimation
 │   ├── signal_engine.py   # Z-score logic, entry/exit rules
