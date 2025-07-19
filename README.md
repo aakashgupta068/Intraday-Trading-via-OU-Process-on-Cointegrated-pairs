@@ -9,9 +9,7 @@ Intraday OU-Based Pairs Trading on NSE: Mean-Reverting Signal with Cost-Aware Ex
 This project models intraday spreads between cointegrated equity pairs using the Ornstein-Uhlenbeck (OU) process to identify mean-reverting trade opportunities. Parameters are calibrated via Maximum Likelihood Estimation (MLE), and the strategy is validated using realistic fill assumptions, transaction costs, and capital management rules. Performance is evaluated using Sharpe ratio, annualized PnL, ROM, and drawdown.
 
 📁 2. Directory Structure
-bash
-Copy
-Edit
+
 ├── data/                  # Raw and processed market data
 
 ├── notebooks/             # EDA, modeling, performance analysis
