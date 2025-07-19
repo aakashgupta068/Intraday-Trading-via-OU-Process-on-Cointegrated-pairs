@@ -14,6 +14,8 @@ This project models intraday spreads between cointegrated equity pairs using the
 
 ├── notebooks/             # EDA, modeling, performance analysis
 
+├── main.py
+
 ├── src/
 
 │   ├── data_loader.py     # Load & preprocess data 
@@ -30,9 +32,7 @@ This project models intraday spreads between cointegrated equity pairs using the
 
 ├── requirements.txt
 
-├── README.md
-
-└── main.py
+└── README.md
 
 
 ### 📊 3. Data Extraction & Preprocessing
@@ -50,10 +50,56 @@ Steps:
 
 * Stationarity testing (ADF) and Johansen test for cointegration
 
-python
-Copy
-Edit
-# Example: Cointegration filter
-from statsmodels.tsa.vector_ar.vecm import coint_johansen
-# Filter top 10 cointegrated pairs
 
+### 🔍 4. Model Calibration (OU Process)
+Model:
+OU Process:
+      dXₜ = θ(μ - Xₜ)dt + σ dWₜ
+
+Estimate parameters (θ, μ, σ) using MLE on spread series.
+
+Estimate half-life: ln(2)/θ to determine holding horizon.
+
+### 📈 5. Signal Generation
+*Z-Score Strategy:*
+* Entry signal: Z-score exceeds upper/lower threshold
+
+* Exit: Z-score reverts to mean
+
+*Trading Logic*:
+* Long spread: if z-score < -entry threshold
+
+* Short spread: if z-score > +entry threshold
+
+* Exit: abs(z-score) < 0.1
+
+### ⚙️ 6. Backtesting and Execution Simulation
+*Features:*
+
+* Simulate execution with fill probability
+* Apply realistic transaction cost (e.g., 2 bps per leg)
+* Daily capital constraint
+* Trade sizing via z-score magnitude or volatility scaling
+
+### 📊 7. Performance Evaluation
+*Metrics:*
+* Sharpe Ratio
+* Annualized PnL
+* Max Drawdown
+* Return on Margin (ROM): PnL / max capital deployed
+* Win rate, Trade count, Avg holding time
+
+### 🔎 8. Result Summary
+<img width="509" height="341" alt="image" src="https://github.com/user-attachments/assets/0c5aeb21-1fb5-47db-b53e-b1c06a95f6ff" />
+
+### 🧪 9. Robustness Checks
+* Walk-forward calibration
+* Rolling cointegration windows
+* Slippage sensitivity
+* Stress-test performance under spread breakdown
+
+### 🛠️ 10. Improvements and Next Steps
+* Add stop-loss layer based on rolling volatility
+* Adapt strategy for live trading on API (e.g., Zerodha Kite Connect)
+* Introduce LSTM-based OU parameter forecasting (for research only)
+* Explore multi-pair optimization or pair rotation
