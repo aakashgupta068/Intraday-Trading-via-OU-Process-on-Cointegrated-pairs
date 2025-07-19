@@ -13,15 +13,26 @@ bash
 Copy
 Edit
 ├── data/                  # Raw and processed market data
+
 ├── notebooks/             # EDA, modeling, performance analysis
+
 ├── src/
+
 │   ├── data_loader.py     # Load & preprocess data 
 
 │   ├── cointegration.py   # Pair filtering via Johansen test
+
 │   ├── ou_model.py        # OU parameter estimation
+
 │   ├── signal_engine.py   # Z-score logic, entry/exit rules
+
 │   ├── backtest_engine.py # Execution logic and capital tracking
+
 │   └── metrics.py         # Sharpe, drawdown, ROM calculations
+
 ├── requirements.txt
+
 ├── README.md
+
 └── main.py
+
