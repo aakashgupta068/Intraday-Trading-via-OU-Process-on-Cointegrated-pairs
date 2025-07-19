@@ -42,13 +42,13 @@ NSE intraday 1-minute data (cash equities)
 Sources: [Kibot / Quandl / Zerodha / AlphaVantage / Paid APIs]
 
 Steps:
-Load intraday OHLCV data
+* Load intraday OHLCV data
 
-Synchronize timestamps across symbols
+* Synchronize timestamps across symbols
 
-Generate spread series: Spread(t) = Price_A(t) - β × Price_B(t)
+* Generate spread series: Spread(t) = Price_A(t) - β × Price_B(t)
 
-Stationarity testing (ADF) and Johansen test for cointegration
+* Stationarity testing (ADF) and Johansen test for cointegration
 
 python
 Copy
